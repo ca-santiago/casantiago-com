@@ -1,5 +1,6 @@
 import { poppins } from "@/fonts"
 import Image from "next/image";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 export const AboutSection = () => {
     return (
@@ -12,12 +13,12 @@ export const AboutSection = () => {
                         <h1 className={`${poppins.variable} text-[55px] font-bold text-[#2d2e32] leading-tight mb-5`}>Front-End React Developer</h1>
 
                         {/* Links */}
-                        <div>
-                            <div>
-                                <a className="text-slate-700 font-medium">Github</a>
+                        <div className="flex flex-row gap-10 items-center select-none cursor-pointer text-slate-500">
+                            <div className="flex flex-ro gap-2 items-center">
+                                <FaGithub size={24} /><a target="_blank" href="https://github.com/ca-santiago?source=casantiago.com" className="text-slate-700 font-medium">Github</a>
                             </div>
-                            <div>
-                                <a className="text-slate-700 font-medium">LinkedIn</a>
+                            <div className="flex flex-row gap-2 items-center ">
+                                <FaLinkedin size={24} /><a target="_blank" href="https://www.linkedin.com/in/carmen-santiago-casj?source=casantiago.com" className="text-slate-700 font-medium">LinkedIn</a>
                             </div>
                         </div>
                     </div>
