@@ -5,7 +5,7 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 export const AboutSection = () => {
     return (
         <section id="about" className="bg-main min-h-screen h-screen w-full">
-            <div className="flex flex-row pt-52 mx-auto w-[950px]">
+            <div className="flex flex-col md:flex-row pt-52 mx-auto w-[950px]">
                 <div className="bg-slate-50 flex flex-col w-full">
                     <div>
                         {/* Presentation */}
@@ -29,9 +29,9 @@ export const AboutSection = () => {
                         <a className="ml-8 color-accent" href="#contact">Hire me</a>
                     </div>
                 </div>
-                <div className=" w-full">
-                    <div className="w-full h-full flex items-center justify-center rounded-full overflow-hidden">
-                        <Image alt="profile image" className="rounded-full overflow-hidden" width={250} height={250} src="https://media.licdn.com/dms/image/C4E03AQFlomGXiyAZTg/profile-displayphoto-shrink_800_800/0/1608249718397?e=1706140800&v=beta&t=fLdVZoTvpdnXLpGq0ZJ8rF2bIeNp3XsmdhkqHTCVk3g" />
+                <div className="w-full">
+                    <div id="profile-container" className="w-full h-full flex items-center justify-center rounded-full overflow-hidden -mt-10">
+                        <Image alt="profile image" className="rounded-full overflow-hidden" width={450} height={450} src="https://media.licdn.com/dms/image/C4E03AQFlomGXiyAZTg/profile-displayphoto-shrink_800_800/0/1608249718397?e=1706140800&v=beta&t=fLdVZoTvpdnXLpGq0ZJ8rF2bIeNp3XsmdhkqHTCVk3g" />
                     </div>
                 </div>
             </div>
