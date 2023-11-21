@@ -43,8 +43,8 @@ const ProjectCard = ({ data }) => {
         </div>
       </div>
       {/* Images */}
-      <div className="bg-slate-50 flex flex-row">
-        {data.images && <Carousel slides={data.images} h={10} w={355} name={data.title} />}
+      <div className="bg-slate-50 flex flex-row w-full max-h-80">
+        {data.images && <Carousel slides={data.images} h={10} w={423} name={data.title} />}
       </div>
     </div>
   );
