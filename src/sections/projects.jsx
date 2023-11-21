@@ -18,7 +18,7 @@ const ProjectCard = ({ data }) => {
           <h4 className="font-semibold text-xl text-slate-700">{data.title}</h4>
           <p className="text-sm mt-2 text-slate-600">{data.description}</p>
         </div>
-        <div className="flex gap-3 flex-col">
+        <div className="flex gap-3 flex-col mt-8">
           <div className="flex gap-4 text-slate-600 ml-1">
             <a
               target="_blank"
@@ -44,7 +44,7 @@ const ProjectCard = ({ data }) => {
       </div>
       {/* Images */}
       <div className="bg-slate-50 flex flex-row">
-        <Carousel slides={data.images} h={10} w={355} name={data.title} />
+        {data.images && <Carousel slides={data.images} h={10} w={355} name={data.title} />}
       </div>
     </div>
   );

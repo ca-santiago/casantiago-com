@@ -1,23 +1,26 @@
 {
-    "data": [
-        {
-            "id": "c5120cb8-783b-4f0c-94af-a9442ee6684f",
-            "title": "Boom tools",
-            "description": "A stepped from completion aplication to dynamically create and distribute web forms based on Video recording, Web forms and Signature Pad",
-            "skills": [
-                "Nextjs",
-                "React",
-                "Javascript"
-            ],
-            "url": "https://boom-tools.casantiago.com",
-            "images": [
-                "https://drive.google.com/uc?id=11bbGck-b0Mh9Yp9jq4HiWIBYbNIx_PPt",
-                 "https://drive.google.com/uc?id=1GABr5CwJGb3O8WDciuhit3V14-aC4sBC",
-                "https://drive.google.com/uc?id=1Pndf8Q_sDXOy0ck_tmw876z9K7AWy30-",
-                "https://drive.google.com/uc?id=1fbrpwVBrxczkTWTEkiZbU1Kpy4-6EAQM",
-                "https://drive.google.com/uc?id=1g3eFsAbsCnHp6jMZpZfD6dfBzQAKCWZw",
-                "https://drive.google.com/uc?id=1jHTENWPF3pvD4a5FVS7rI8nqjHwT7-IR"
-            ]
-        }
-    ]
+  "data": [
+    {
+      "id": "c5120cb8-783b-4f0c-94af-a9442ee6684f",
+      "title": "Boom tools",
+      "description": "A stepped from completion aplication to dynamically create and distribute web forms based on Video recording, Web forms and Signature Pad",
+      "skills": ["Nextjs", "React", "Javascript"],
+      "url": "https://boom-tools.casantiago.com",
+      "images": [
+        "https://drive.google.com/uc?id=11bbGck-b0Mh9Yp9jq4HiWIBYbNIx_PPt",
+        "https://drive.google.com/uc?id=1GABr5CwJGb3O8WDciuhit3V14-aC4sBC",
+        "https://drive.google.com/uc?id=1Pndf8Q_sDXOy0ck_tmw876z9K7AWy30-",
+        "https://drive.google.com/uc?id=1fbrpwVBrxczkTWTEkiZbU1Kpy4-6EAQM",
+        "https://drive.google.com/uc?id=1g3eFsAbsCnHp6jMZpZfD6dfBzQAKCWZw",
+        "https://drive.google.com/uc?id=1jHTENWPF3pvD4a5FVS7rI8nqjHwT7-IR"
+      ]
+    },
+    {
+      "id": "d2d91c7d-8bd4-4b1c-aa86-303515b615e8",
+      "title": "hapi-auth-strategies-required",
+      "description": "Hapi plugin to allow multiple auth strategies as required in a single route",
+      "skills": ["Javascript", "hapi", "npm"],
+      "url": "https://www.npmjs.com/package/hapi-auth-strategies-required"
+    }
+  ]
 }
