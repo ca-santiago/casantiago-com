@@ -6,7 +6,7 @@ export const AboutSection = () => {
     return (
         <section id="about" className="bg-main min-h-screen h-screen w-full">
             <div className="flex flex-col md:flex-row pt-52 mx-auto w-[950px]">
-                <div className="bg-slate-50 flex flex-col w-full">
+                <div className="flex flex-col w-full">
                     <div>
                         {/* Presentation */}
                         <p className="text-slate-700 font-semibold text-lg ml-1">Hi, I&apos;m Carmen Santiago</p>
