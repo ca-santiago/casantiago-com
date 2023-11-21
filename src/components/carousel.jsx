@@ -24,15 +24,6 @@ export default function Carousel({ slides, w, h, name }) {
 
   return (
     <div className="overflow-hidden relative flex">
-      <div className="absolute top-0 h-full w-full justify-between items-center flex text-transparent hover:text-slate-500 transition duration-800 ease-in px-3 text-xl">
-        <button onClick={previousSlide}>
-          <BsFillArrowLeftCircleFill />
-        </button>
-        <button onClick={nextSlide}>
-          <BsFillArrowRightCircleFill />
-        </button>
-      </div>
-
       <div
         className={`flex transition ease-out duration-40`}
         style={{
@@ -40,17 +31,26 @@ export default function Carousel({ slides, w, h, name }) {
         }}
       >
         {slides.map((s, index) => (
-          <div key={index} className="w-[354px] flex border bg-red-50 border-slate-500">
+          <div key={index} className="w-[354px]">
             <Image
-              className="object-cover w-full"
+              className="w-full"
               key={index}
               src={s || notFoundImg}
-              width={450}
-              height={450}
+              width={1080}
+              height={912}
               alt={`${name}-${index}`}
             />
           </div>
         ))}
+      </div>
+
+      <div className="absolute top-0 h-full w-full justify-between items-center flex text-transparent hover:text-slate-500 transition duration-800 ease-in px-3 text-xl">
+        <button onClick={previousSlide}>
+          <BsFillArrowLeftCircleFill />
+        </button>
+        <button onClick={nextSlide}>
+          <BsFillArrowRightCircleFill />
+        </button>
       </div>
 
       <div className="absolute bottom-0 py-4 flex justify-center gap-4 w-full">
