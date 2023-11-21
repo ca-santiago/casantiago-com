@@ -9,7 +9,7 @@ import {
 const notFoundImg =
   "https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg";
 
-export default function Carousel({ slides, w, h, name }) {
+export default function Carousel({ slides, name }) {
   let [current, setCurrent] = useState(0);
 
   let previousSlide = () => {
@@ -31,11 +31,11 @@ export default function Carousel({ slides, w, h, name }) {
         }}
       >
         {slides.map((s, index) => (
-          <div key={index} className="w-[354px]">
+          <div key={index} className="w-[354px] xl:w-[423px] flex">
             <Image
-              className="w-full"
+              className="w-full object-fill"
               key={index}
-              src={s || notFoundImg}
+              src={s | notFoundImg}
               width={1080}
               height={912}
               alt={`${name}-${index}`}
