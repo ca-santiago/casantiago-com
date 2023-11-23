@@ -19,7 +19,9 @@ const MobileView = () => {
           >
             casantiago.com
           </a>
-          <Icon onClick={() => setOpen((prev) => !prev)} size={24} />
+          <div className="text-slate-700">
+            <Icon onClick={() => setOpen((prev) => !prev)} size={24} />
+          </div>
         </div>
         <ul
           id="mobile-menu"
@@ -32,7 +34,6 @@ const MobileView = () => {
           </li>
           <li onClick={handleClick}>
             <a href="#projects">Projects</a>
-            <AiOutlineMenu />
           </li>
           <li onClick={handleClick}>
             <a href="#contact">Contact</a>
