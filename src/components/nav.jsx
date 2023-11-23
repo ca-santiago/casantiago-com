@@ -57,6 +57,7 @@ const DesktopView = () => {
       <ul className="flex flex-row gap-4">
         <li>
           <a href="#about">About</a>
+          <AiOutlineMenu />
         </li>
         <li>
           <a href="#projects">Projects</a>{" "}
