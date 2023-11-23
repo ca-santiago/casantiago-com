@@ -4,9 +4,9 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 export const AboutSection = () => {
     return (
-        <section id="about" className="bg-main min-h-screen h-screen w-full">
-            <div className="flex flex-col md:flex-row pt-52 mx-auto w-[950px]">
-                <div className="flex flex-col w-full">
+        <section id="about" className="bg-main h-auto md:min-h-screen md:h-screen w-full">
+            <div className="flex flex-col md:flex-row pt-52 mx-auto w-full lg:w-[950px]">
+                <div className="flex flex-col w-full pl-8 md:px-20 lg:px-0">
                     <div>
                         {/* Presentation */}
                         <p className="text-slate-700 font-semibold text-lg ml-1">Hi, I&apos;m Carmen Santiago</p>
@@ -30,8 +30,9 @@ export const AboutSection = () => {
                     </div>
                 </div>
                 <div className="w-full">
-                    <div id="profile-container" className="w-full h-full flex items-center justify-center rounded-full overflow-hidden -mt-10">
-                        <Image alt="profile image" className="rounded-full overflow-hidden" width={450} height={450} src="https://media.licdn.com/dms/image/C4E03AQFlomGXiyAZTg/profile-displayphoto-shrink_800_800/0/1608249718397?e=1706140800&v=beta&t=fLdVZoTvpdnXLpGq0ZJ8rF2bIeNp3XsmdhkqHTCVk3g" />
+                    <div id="profile-container" className="w-full h-full flex items-center justify-center rounded-full overflow-hidden mt-10 md:-mt-10">
+                        <Image alt="profile image" className="rounded-full overflow-hidden hidden md:block" width={450} height={450} src="https://media.licdn.com/dms/image/C4E03AQFlomGXiyAZTg/profile-displayphoto-shrink_800_800/0/1608249718397?e=1706140800&v=beta&t=fLdVZoTvpdnXLpGq0ZJ8rF2bIeNp3XsmdhkqHTCVk3g" />
+                        <Image alt="profile image" className="rounded-full overflow-hidden block md:hidden" width={450} height={450} src="https://media.licdn.com/dms/image/C4E03AQFlomGXiyAZTg/profile-displayphoto-shrink_800_800/0/1608249718397?e=1706140800&v=beta&t=fLdVZoTvpdnXLpGq0ZJ8rF2bIeNp3XsmdhkqHTCVk3g" />
                     </div>
                 </div>
             </div>
