@@ -4,8 +4,8 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 export const AboutSection = () => {
     return (
-        <section id="about" className="bg-main h-auto md:min-h-screen md:h-screen w-full">
-            <div className="flex flex-col md:flex-row pt-52 mx-auto w-full lg:w-[950px]">
+        <section id="about" className="scroll-m-14 bg-main h-auto md:min-h-screen md:h-screen w-full">
+            <div className="flex flex-col md:flex-row pt-10 md:pt-52 mx-auto w-full lg:w-[950px]">
                 <div className="flex flex-col w-full pl-8 md:px-20 lg:px-0">
                     <div>
                         {/* Presentation */}

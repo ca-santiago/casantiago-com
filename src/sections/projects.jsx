@@ -52,7 +52,7 @@ const ProjectCard = ({ data }) => {
 
 export const ProjectsSection = () => {
   return (
-    <section id="projects" className="w-full bg-slate-200 pb-16">
+    <section id="projects" className="scroll-m-14 w-full bg-slate-200 pb-16">
       <h3 className="text-center font-semibold text-slate-600 text-3xl pt-5 md:pt-10">
         Projects
       </h3>
