@@ -10,7 +10,7 @@ const MobileView = () => {
   };
   return (
     <div className="block md:hidden select-none">
-      <div className=" w-full bg-white shadow top-0 z-50 fixed">
+      <div className="w-full bg-white shadow top-0 z-50 fixed">
         <div className="flex flex-row justify-between items-center px-5 h-14">
           {/* Will be replace by a logo */}
           <a
@@ -46,7 +46,7 @@ const MobileView = () => {
 
 const DesktopView = () => {
   return (
-    <div className="h-16 shadow-sm rounded-b-sm bg-white absolute w-full items-center text-lg hidden md:flex flex-row justify-between p-3 px-10">
+    <div className="h-16 shadow-sm rounded-b-sm bg-white w-full items-center text-lg hidden md:flex flex-row justify-between p-3 px-10 top-0 z-50 fixed">
       {/* Will be replace by a logo */}
       <a
         href="/"
