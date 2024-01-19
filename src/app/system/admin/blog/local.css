@@ -1,0 +1,83 @@
+li,
+p {
+  font-size: 20px;
+}
+
+h1 {
+  @apply text-slate-700 font-semibold text-3xl;
+}
+
+h2 {
+  @apply text-slate-700 font-semibold text-2xl;
+}
+
+h3 {
+  @apply text-slate-700 font-semibold text-xl;
+}
+
+p,
+li,
+a,
+span,
+pre {
+  @apply text-slate-600 font-normal;
+}
+
+.editor-menu {
+  @apply rounded-full border shadow-md border-slate-100 bg-white flex gap-3 px-2;
+}
+
+.editor-menu button {
+  @apply text-slate-400 text-base p-1;
+}
+
+.editor-menu button.is-active,
+.editor-menu .is-active {
+  @apply text-slate-800;
+}
+
+.tiptap {
+  outline: 0px solid transparent;
+}
+
+pre:has(code) {
+  padding: 2px;
+}
+pre code {
+  @apply rounded;
+}
+
+p code,
+h5 code {
+  @apply bg-slate-200 rounded-md p-0.5 px-1 text-slate-700;
+}
+
+@supports (height: 1lh) {
+  p:empty {
+    height: 1lh;
+  }
+}
+
+@supports not (height: 1lh) {
+  p:empty::after {
+    content: "\00A0";
+  }
+}
+
+.tiptap p.is-editor-empty:first-child::before {
+  color: #adb5bd;
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+.tiptap h1.is-empty::before,
+.tiptap h2.is-empty::before,
+.tiptap h3.is-empty::before {
+  color: #adb5bd;
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
