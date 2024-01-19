@@ -30,7 +30,19 @@ ul {
 }
 
 .editor-menu {
-  @apply rounded-full border shadow-md border-slate-100 bg-white flex gap-3 px-2;
+  @apply rounded-full border shadow-md border-slate-100 bg-white flex gap-1 px-2;
+}
+
+.editor-menu div:nth-child(n) {
+  @apply border-r-2 border-slate-100 pr-1;
+}
+
+.editor-menu div:empty {
+  display: none;
+}
+
+.editor-menu div:nth-last-child(1) {
+  @apply border-r-0;
 }
 
 .editor-menu button {

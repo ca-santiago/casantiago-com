@@ -24,12 +24,14 @@ import Document from '@tiptap/extension-document';
 import Text from '@tiptap/extension-text';
 
 
-
 import { IoMdCode } from "react-icons/io";
 import { TbSourceCode, TbItalic, TbBold, TbStrikethrough } from "react-icons/tb";
 import { FiList } from "react-icons/fi";
-// import { PiCodeBlock } from "react-icons/pi";
 
+const { title, content } = {
+  "title": "",
+  "content": ""
+}
 
 const lowlight = createLowlight(common);
 lowlight.register({
@@ -78,7 +80,7 @@ const Menu = ({ editor }) => {
 
   return (
     <BubbleMenu className='editor-menu' editor={editor} tippyOptions={{ duration: 100 }}>
-      <div className='flex gap-2'>
+      <div className='flex gap-0'>
         {editor.can().setBold() && <button
           onClick={() => editor.chain().focus().toggleBold().run()}
           className={editor.isActive('bold') ? 'is-active' : ''}
@@ -98,13 +100,12 @@ const Menu = ({ editor }) => {
           <TbStrikethrough />
         </button>}
       </div>
-      <div className='flex gap-2'>
+      {/* <div className='flex gap-0'></div> */}
+      <div className='flex gap-0'>
         <button onClick={() => editor.chain().focus().toggleBulletList().run()}
           className={editor.isActive('bulletList') ? 'is-active' : ''}>
           <FiList />
         </button>
-      </div>
-      <div className='flex gap-2'>
         {/* {editor.can().setImage() && <button onClick={addImage}>Img</button>} */}
         {editor.can().setCode() && <button
           onClick={() => editor.chain().focus().toggleCode().run()}
@@ -117,7 +118,7 @@ const Menu = ({ editor }) => {
           <TbSourceCode />
         </button>
       </div>
-      <div className='flex gap-2 font-semibold'>
+      <div className='flex gap-1 font-semibold'>
         <button
           onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
           className={editor.isActive('heading', { level: 1 }) ? 'is-active' : ''}
@@ -148,6 +149,7 @@ const CustomDoc = Document.extend({
 
 const BlogEditor = () => {
   const titleEditor = useEditor({
+    content: title,
     extensions: [
       CustomDoc,
       Text,
@@ -159,6 +161,7 @@ const BlogEditor = () => {
   });
 
   const editor = useEditor({
+    content,
     extensions: [
       StarterKit.configure({
         heading: {
@@ -176,7 +179,6 @@ const BlogEditor = () => {
       Placeholder.configure({
         placeholder: ({ node }) => {
           if (node.type.name === 'heading') {
-            console.log({ node: node.attrs });
             return `Subheading ${node.attrs?.['level'] || ''}`;
           }
           return 'Your story here...';
@@ -227,11 +229,6 @@ const BlogEditor = () => {
       </div> */}
     </div>
   )
-}
-
-EditorView.prototype.updateState = function updateState(state) {
-  if (!this.docView) return // This prevents the matchesNode error on hot reloads
-  this.updateStateInner(state, this.state.plugins != state.plugins)
 }
 
 export default BlogEditor;
