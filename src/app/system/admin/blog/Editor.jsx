@@ -44,6 +44,7 @@ lowlight.register({
 import hljs from 'highlight.js';
 import BulletList from '@tiptap/extension-bullet-list';
 import ListItem from '@tiptap/extension-list-item';
+import OrderedList from '@tiptap/extension-ordered-list';
 
 const Menu = ({ editor }) => {
 
@@ -171,6 +172,7 @@ const BlogEditor = () => {
       Image,
       Code,
       BulletList,
+      OrderedList,
       ListItem,
       CodeBlockLowlight.configure({
         lowlight,
@@ -201,6 +203,7 @@ const BlogEditor = () => {
       title: titleEditor.getHTML(),
       content: editor.getHTML()
     });
+    editor.commands.setHorizontalRule()
   }
 
   // React.useEffect(() => {
