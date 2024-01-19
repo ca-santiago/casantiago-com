@@ -27,6 +27,7 @@ import Text from '@tiptap/extension-text';
 
 import { IoMdCode } from "react-icons/io";
 import { TbSourceCode, TbItalic, TbBold, TbStrikethrough } from "react-icons/tb";
+import { FiList } from "react-icons/fi";
 // import { PiCodeBlock } from "react-icons/pi";
 
 
@@ -39,6 +40,8 @@ lowlight.register({
 });
 
 import hljs from 'highlight.js';
+import BulletList from '@tiptap/extension-bullet-list';
+import ListItem from '@tiptap/extension-list-item';
 
 const Menu = ({ editor }) => {
 
@@ -94,6 +97,12 @@ const Menu = ({ editor }) => {
         >
           <TbStrikethrough />
         </button>}
+      </div>
+      <div className='flex gap-2'>
+        <button onClick={() => editor.chain().focus().toggleBulletList().run()}
+          className={editor.isActive('bulletList') ? 'is-active' : ''}>
+          <FiList />
+        </button>
       </div>
       <div className='flex gap-2'>
         {/* {editor.can().setImage() && <button onClick={addImage}>Img</button>} */}
@@ -158,6 +167,8 @@ const BlogEditor = () => {
       }),
       Image,
       Code,
+      BulletList,
+      ListItem,
       CodeBlockLowlight.configure({
         lowlight,
         languageClassPrefix: 'hljs language-'

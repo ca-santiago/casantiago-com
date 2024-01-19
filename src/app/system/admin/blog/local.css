@@ -23,6 +23,12 @@ pre {
   @apply text-slate-600 font-normal;
 }
 
+ul {
+  list-style-type: revert;
+  list-style-position: outside;
+  padding-left: 25px;
+}
+
 .editor-menu {
   @apply rounded-full border shadow-md border-slate-100 bg-white flex gap-3 px-2;
 }
