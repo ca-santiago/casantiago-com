@@ -23,7 +23,8 @@ pre {
   @apply text-slate-600 font-normal;
 }
 
-ul, ol {
+ul,
+ol {
   list-style-type: revert;
   list-style-position: outside;
   padding-left: 25px;
@@ -70,6 +71,46 @@ h5 code {
   @apply bg-slate-200 rounded-md p-0.5 px-1 text-slate-700;
 }
 
+.plus-container {
+  @apply bg-white border rounded-full flex p-1 items-center justify-center;
+}
+
+.menu-actions-container {
+  @apply w-fit;
+}
+
+.actions-container {
+  @apply flex flex-col justify-center pt-3 gap-3 w-full absolute;
+}
+
+.actions-container button {
+  @apply border rounded-full h-10 w-10 mx-auto flex justify-center items-center hover:bg-slate-50 bg-white;
+}
+
+.add-close-container {
+  @apply p-1 border rounded-full duration-75 transition;
+}
+
+.actions-container {
+  @apply duration-100;
+}
+
+/* .actions-container {
+  display: none;
+}
+
+.menu-actions-container {
+  @apply relative;
+}
+
+.menu-actions-container:hover .actions-container {
+  display: flex;
+}
+
+.actions-container:hover .actions-container {
+  display: flex;
+} */
+
 @supports (height: 1lh) {
   p:empty {
     height: 1lh;
@@ -82,15 +123,15 @@ h5 code {
   }
 }
 
-
-
 hr {
   height: 20px;
   @apply bg-slate-50 select-none;
   margin: 50px 0;
 }
 
-hr, hr:before, hr:after {
+hr,
+hr:before,
+hr:after {
   display: flex;
   border-radius: 50%;
   left: 50%;
@@ -99,9 +140,10 @@ hr, hr:before, hr:after {
   background-color: #88888846;
 }
 
-hr:before, hr:after {
+hr:before,
+hr:after {
   position: absolute;
-  content: '';
+  content: "";
 }
 
 hr:before {
@@ -115,11 +157,6 @@ hr {
 hr:after {
   transform: translateX(30px);
 }
-
-
-
-
-
 
 .tiptap p.is-editor-empty:first-child::before {
   color: #adb5bd;

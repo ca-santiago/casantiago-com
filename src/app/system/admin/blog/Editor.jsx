@@ -1,14 +1,15 @@
 'use client'
 import React from 'react';
-import { useEditor, EditorContent, BubbleMenu } from '@tiptap/react';
+import { useEditor, EditorContent, BubbleMenu, FloatingMenu } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import Image from '@tiptap/extension-image'
 import Code from '@tiptap/extension-code';
 import Placeholder from '@tiptap/extension-placeholder';
-import { EditorView } from '@tiptap/pm/view';
 
 import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight';
 import { createLowlight, common } from 'lowlight';
+
+import cn from 'classnames';
 
 
 // import hljs from 'highlight.js';
@@ -27,6 +28,9 @@ import Text from '@tiptap/extension-text';
 import { IoMdCode } from "react-icons/io";
 import { TbSourceCode, TbItalic, TbBold, TbStrikethrough } from "react-icons/tb";
 import { FiList } from "react-icons/fi";
+import { LuImagePlus } from "react-icons/lu";
+import { CgFormatSeparator } from "react-icons/cg";
+import { IoCloseOutline } from "react-icons/io5";
 
 const { title, content } = {
   "title": "",
@@ -45,13 +49,9 @@ import hljs from 'highlight.js';
 import BulletList from '@tiptap/extension-bullet-list';
 import ListItem from '@tiptap/extension-list-item';
 import OrderedList from '@tiptap/extension-ordered-list';
+import useOnScreen from '@/hooks/useOnScreen';
 
 const Menu = ({ editor }) => {
-
-  const addImage = React.useCallback(() => {
-    const url = window.prompt('URL')
-    if (url) editor.chain().focus().setImage({ src: url }).run();
-  }, [editor])
 
   // const handleHeadingChange = (e) => {
   //   const handleHeadingChange = (e) => {
@@ -107,7 +107,6 @@ const Menu = ({ editor }) => {
           className={editor.isActive('bulletList') ? 'is-active' : ''}>
           <FiList />
         </button>
-        {/* {editor.can().setImage() && <button onClick={addImage}>Img</button>} */}
         {editor.can().setCode() && <button
           onClick={() => editor.chain().focus().toggleCode().run()}
           className={editor.isActive('code') ? 'is-active' : ''}>
@@ -140,6 +139,58 @@ const Menu = ({ editor }) => {
         </button>
       </div>
     </BubbleMenu>
+  );
+}
+
+const LeftMenu = ({ editor }) => {
+  const [isOpen, setIsOpen] = React.useState(true);
+  const containerRef = React.useRef();
+  const isVisible = useOnScreen(containerRef)
+
+  const handleSetSeparator = () => {
+    editor.chain().focus().setHorizontalRule().run();
+  }
+
+  const addImage = React.useCallback(() => {
+    const url = window.prompt('URL')
+    if (url) editor.chain().focus().setImage({ src: url }).run();
+  }, [editor]);
+
+  const togglePlusClick = () => {
+    setIsOpen(prev => !prev);
+  }
+
+  const addCloseIconCx = cn({
+    'add-close-container': true,
+    'rotate-45': !isOpen,
+  });
+
+  const close = (e) => {
+    setIsOpen(false);
+  }
+
+  React.useEffect(() => {
+    if (!isVisible) close();
+  }, [isVisible]);
+
+  return (
+    <FloatingMenu editor={editor} tippyOptions={{ delay: 300, animateFill: true }}>
+      <div ref={containerRef}>
+        <div className="absolute bottom-0 translate-y-1/2 right-6 gap-2 flex text-slate-500 select-none">
+          <div className="menu-actions-container">
+            <div className={addCloseIconCx} onClick={togglePlusClick}>
+              <IoCloseOutline size={28} />
+            </div>
+            {isOpen && (
+              <div className="actions-container">
+                <button><LuImagePlus onClick={addImage} size={20} /></button>
+                <button><CgFormatSeparator onClick={handleSetSeparator} size={20} /></button>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </FloatingMenu>
   );
 }
 
@@ -203,7 +254,6 @@ const BlogEditor = () => {
       title: titleEditor.getHTML(),
       content: editor.getHTML()
     });
-    editor.commands.setHorizontalRule()
   }
 
   // React.useEffect(() => {
@@ -213,6 +263,7 @@ const BlogEditor = () => {
   return (
     <div className="w-full min-h-screen bg-white">
       {editor && <Menu editor={editor} />}
+      {editor && <LeftMenu editor={editor} />}
       <div className='min-h-4 w-full flex flex-row items-center justify-center p-3'>
         <button className='rounded bg-blue-500 p-1 px-2 text-white' onClick={handleCopyClick}>Copy content</button>
       </div>
