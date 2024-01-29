@@ -1,18 +1,26 @@
 li,
 p {
   font-size: 20px;
+  margin-bottom: 36px;
+  line-height: 32px;
+}
+
+h1,
+h2,
+h3 {
+  @apply text-slate-600 font-semibold;
 }
 
 h1 {
-  @apply text-slate-700 font-semibold text-3xl;
+  @apply text-3xl mb-8 mt-9;
 }
 
 h2 {
-  @apply text-slate-700 font-semibold text-2xl;
+  @apply text-2xl mb-4 mt-8;
 }
 
 h3 {
-  @apply text-slate-700 font-semibold text-xl;
+  @apply text-xl mb-3 mt-7;
 }
 
 p,
@@ -20,14 +28,35 @@ li,
 a,
 span,
 pre {
-  @apply text-slate-600 font-normal;
+  @apply text-slate-700 font-normal;
+}
+
+b,
+strong {
+  font-weight: 600;
 }
 
 ul,
 ol {
   list-style-type: revert;
   list-style-position: outside;
-  padding-left: 25px;
+  padding-left: 30px;
+  margin-bottom: 15px;
+}
+
+ul li,
+ol li {
+  margin-bottom: 0px;
+}
+
+li p {
+  margin-bottom: 10px;
+}
+
+p:empty,
+p.is-empty,
+p:has(br.ProseMirror-trailingBreak) {
+  margin-bottom: 0px;
 }
 
 .editor-menu {
@@ -59,11 +88,23 @@ ol {
   outline: 0px solid transparent;
 }
 
+.content-header {
+  @apply text-slate-700;
+}
+
+#heading {
+  margin-bottom: 70px;
+}
+
+#heading h1 {
+  @apply text-4xl;
+}
+
 pre:has(code) {
   padding: 2px;
 }
 pre code {
-  @apply rounded;
+  @apply rounded text-sm;
 }
 
 p code,
