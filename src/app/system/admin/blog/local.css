@@ -36,6 +36,12 @@ strong {
   font-weight: 600;
 }
 
+a {
+  cursor: pointer;
+  color: rgb(74, 115, 225);
+  text-decoration: underline;
+}
+
 ul,
 ol {
   list-style-type: revert;
