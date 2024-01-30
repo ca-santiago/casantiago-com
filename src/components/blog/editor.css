@@ -1,0 +1,72 @@
+
+.editor-menu {
+  @apply rounded-full border shadow-md border-slate-100 bg-white flex gap-1 px-2;
+}
+
+.editor-menu div:nth-child(n) {
+  @apply border-r-2 border-slate-100 pr-1;
+}
+
+.editor-menu div:empty {
+  display: none;
+}
+
+.editor-menu div:nth-last-child(1) {
+  @apply border-r-0;
+}
+
+.editor-menu button {
+  @apply text-slate-400 text-base p-1;
+}
+
+.editor-menu button.is-active,
+.editor-menu .is-active {
+  @apply text-slate-800;
+}
+
+.tiptap {
+  outline: 0px solid transparent;
+}
+
+
+.tiptap p.is-editor-empty:first-child::before {
+  color: #adb5bd;
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+.tiptap h1.is-empty::before,
+.tiptap h2.is-empty::before,
+.tiptap h3.is-empty::before {
+  color: #adb5bd;
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+.plus-container {
+  @apply bg-white border rounded-full flex p-1 items-center justify-center;
+}
+
+.menu-actions-container {
+  @apply w-fit;
+}
+
+.actions-container {
+  @apply flex flex-col justify-center pt-3 gap-3 w-full absolute;
+}
+
+.actions-container button {
+  @apply border rounded-full h-10 w-10 mx-auto flex justify-center items-center hover:bg-slate-50 bg-white;
+}
+
+.add-close-container {
+  @apply p-1 border rounded-full duration-75 transition;
+}
+
+.actions-container {
+  @apply duration-100;
+}

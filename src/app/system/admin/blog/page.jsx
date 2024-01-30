@@ -2,11 +2,9 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 
-const BlogEditor = dynamic(() => import('./Editor'), {
+const BlogEditor = dynamic(() => import('@/components/blog/Editor'), {
   ssr: false
 });
-
-import './local.css';
 
 const BlogPostCreator = () => {
   return (
