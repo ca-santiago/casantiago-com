@@ -17,6 +17,21 @@
       ]
     },
     {
+      "id":"c5120cb8-783b-4f0c-94af-a9442ee6684f22",
+      "title": "Habits tracker",
+      "description": "Some nice description",
+      "url": "https://habits.casantiago.com",
+      "gitUrl": "https://github.com/ca-santiago/oak-leaft",
+      "skills": ["Javascript", "Node", "PrismaJs", "React", "Tailwind", "HapiJs"],
+      "images": [
+        "https://personel-public-files-e42.s3.amazonaws.com/eggj2kzu-habito-1-vista-de-presentacion-1fe9b29a-f9c0-4a74-94ea-920858879bf8.png",
+        "https://personel-public-files-e42.s3.amazonaws.com/h2an7yjc-habito-1-vista-de-presentacion-f7eb664f-8f84-473f-af3a-c18b38e196d8.png",
+        "https://personel-public-files-e42.s3.amazonaws.com/g692rr46-habito-1-vista-de-presentacion-a9d5eb83-1c30-42b6-961d-14092210fddf.png",
+        "https://personel-public-files-e42.s3.amazonaws.com/brgg89eh-habito-1-vista-de-presentacion-0be84d9a-1f50-4a3e-8385-f558ff66ec0c.png",
+        "https://personel-public-files-e42.s3.amazonaws.com/9rq3k3yh-habito-1-vista-de-presentacion-d915ef47-517f-4d78-9e6e-8abfaaf6cb9d.png"
+      ]
+    },
+    {
       "id": "d2d91c7d-8bd4-4b1c-aa86-303515b615e8",
       "title": "hapi-auth-strategies-required",
       "description": "Hapi plugin to allow multiple auth strategies as required in a single route",
