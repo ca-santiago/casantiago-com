@@ -6,6 +6,7 @@
       "description": "A stepped from completion aplication to dynamically create and distribute web forms based on Video recording, Web forms and Signature Pad",
       "skills": ["Nextjs", "React", "Javascript"],
       "url": "https://boom-tools.casantiago.com",
+      "gitUrl": "https://github.com/ca-santiago/boom-steps-ui",
       "images": [
         "https://drive.google.com/uc?id=11bbGck-b0Mh9Yp9jq4HiWIBYbNIx_PPt",
         "https://drive.google.com/uc?id=1GABr5CwJGb3O8WDciuhit3V14-aC4sBC",

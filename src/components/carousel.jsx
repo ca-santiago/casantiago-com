@@ -30,40 +30,44 @@ export default function Carousel({ slides, name }) {
           transform: `translateX(-${current * 354}px)`,
         }}
       >
-        {slides.map((s, index) => (
+        {slides.map((s, index) => ( console.log(s),
           <div key={index} className="w-[354px] xl:w-[423px] flex">
             <Image
               className="w-full object-fill"
               key={index}
-              src={s | notFoundImg}
-              width={1080}
-              height={912}
+              src={s || notFoundImg}
+              width={600}
+              height={400}
               alt={`${name}-${index}`}
             />
           </div>
         ))}
       </div>
 
-      <div className="absolute top-0 h-full w-full justify-between items-center flex text-transparent hover:text-slate-500 transition duration-800 ease-in px-3 text-xl">
-        <button onClick={previousSlide}>
-          <BsFillArrowLeftCircleFill />
-        </button>
-        <button onClick={nextSlide}>
-          <BsFillArrowRightCircleFill />
-        </button>
-      </div>
+      {slides.length > 1 &&
+        <div className="absolute top-0 h-full w-full justify-between items-center flex text-transparent hover:text-slate-500 transition duration-800 ease-in px-3 text-xl">
+          <button onClick={previousSlide}>
+            <BsFillArrowLeftCircleFill />
+          </button>
+          <button onClick={nextSlide}>
+            <BsFillArrowRightCircleFill />
+          </button>
+        </div>
+      }
 
-      <div className="absolute bottom-0 py-4 flex justify-center gap-4 w-full">
-        {slides.map((s, i) => (
-          <div
-            onClick={() => setCurrent(i)}
-            key={"circle-" + i}
-            className={`rounded-full w-2 h-2 cursor-pointer  ${
-              i == current ? "bg-white" : "bg-gray-500"
-            }`}
-          ></div>
-        ))}
-      </div>
+      {slides.length > 1 &&
+        <div className="absolute bottom-0 py-4 flex justify-center gap-4 w-full">
+          {slides.map((s, i) => (
+            <div
+              onClick={() => setCurrent(i)}
+              key={"circle-" + i}
+              className={`rounded-full w-2 h-2 cursor-pointer  ${
+                i == current ? "bg-white" : "bg-gray-500"
+              }`}
+            ></div>
+          ))}
+        </div>
+      }
     </div>
   );
 }

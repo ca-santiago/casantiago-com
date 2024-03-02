@@ -10,6 +10,9 @@ const nextConfig = {
         },{
             protocol: 'https',
             hostname: 'drive.google.com'
+        }, {
+            protocol: 'https',
+            hostname: 'personel-public-files-e42.s3.amazonaws.com'
         }]
     }
 }

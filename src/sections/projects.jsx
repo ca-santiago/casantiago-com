@@ -20,20 +20,24 @@ const ProjectCard = ({ data }) => {
         </div>
         <div className="flex gap-3 flex-col mt-8">
           <div className="flex gap-4 text-slate-600 ml-1">
-            <a
-              target="_blank"
-              href="https://boom-tools.casantiago.com?source=casantiago.com"
-              className="flex gap-2 justify-center"
-            >
-              Live demo <TbExternalLink size={20} />
-            </a>
-            <a
-              target="_blank"
-              href="https://github.com/ca-santiago/boom-steps-ui"
-              className="flex gap-2 justify-center"
-            >
-              Code <FaGithub size={20} />
-            </a>
+            {data.url &&
+              <a
+                target="_blank"
+                href={data.url}
+                className="flex gap-2 justify-center"
+              >
+                Live demo <TbExternalLink size={20} />
+              </a>
+            }
+            {data.gitUrl &&
+              <a
+                target="_blank"
+                href={data.gitUrl}
+                className="flex gap-2 justify-center"
+              >
+                Code <FaGithub size={20} />
+              </a>
+            }
           </div>
           <div className="flex gap-2">
             {data.skills.map((sk) => (
