@@ -31,7 +31,13 @@ export const AboutSection = () => {
                 </div>
                 <div className="w-full">
                     <div id="profile-container" className="w-full h-full flex items-center justify-center rounded-full mt-10 md:-mt-10 -mx-4 md:mx-0 select-none">
-                        <Image alt="profile image" className="rounded-full overflow-hidden border-none bg-transparent" width={450} height={450} src="https://media.licdn.com/dms/image/C4E03AQFlomGXiyAZTg/profile-displayphoto-shrink_800_800/0/1608249718397?e=1706140800&v=beta&t=fLdVZoTvpdnXLpGq0ZJ8rF2bIeNp3XsmdhkqHTCVk3g" />
+                        <Image
+                            alt="profile image"
+                            className="rounded-full overflow-hidden border-none bg-transparent"
+                            width={650}
+                            height={650}
+                            src="https://personel-public-files-e42.s3.amazonaws.com/d8vofa55-foto-de-perfil-c3af2d22-6a77-4f71-b59b-e1e768c0be91.jpg"
+                        />
                     </div>
                 </div>
             </div>
