@@ -97,15 +97,15 @@ const ProjectCard = ({ data }) => {
         )}
       </div>
       { isViewerOpen && (
-        <Viewer
-          src={data.images}
-          currentIndex={currentImage}
-          onClose={closeImageViewer}
-          disableScroll={false}
+        <ImageViewer
+          src={ data.images }
+          currentIndex={ currentImage }
+          onClose={ closeImageViewer }
+          disableScroll={ false }
           backgroundStyle={{
             backgroundColor: "rgba(0,0,0,0.9)"
           }}
-          closeOnClickOutside={true}
+          closeOnClickOutside
         />
       )}
     </div>
