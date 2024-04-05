@@ -1,6 +1,13 @@
+'use client';
+import React from 'react';
 import { TbExternalLink } from "react-icons/tb";
 import { FaGithub } from "react-icons/fa";
-import Carousel from "@/components/carousel";
+
+import Slider from 'react-slick';
+import ImageViewer from "react-simple-image-viewer";
+import Image from "next/image";
+
+import './projects.css';
 
 const { data } = require("./projects.json");
 
@@ -11,6 +18,19 @@ const SkillChip = ({ text }) => (
 );
 
 const ProjectCard = ({ data }) => {
+  const [currentImage, setCurrentImage] = React.useState(0);
+  const [isViewerOpen, setIsViewerOpen] = React.useState(false);
+
+  const openImageViewer = React.useCallback((index) => {
+    setCurrentImage(index);
+    setIsViewerOpen(true);
+  }, []);
+
+  const closeImageViewer = () => {
+    setCurrentImage(0);
+    setIsViewerOpen(false);
+  };
+
   return (
     <div className="rounded shadow-md bg-white grid grid-cols-2 overflow-hidden">
       <div className="p-4 pr-5 flex flex-col justify-between">
@@ -39,7 +59,7 @@ const ProjectCard = ({ data }) => {
               </a>
             }
           </div>
-          <div className="flex gap-2">
+          <div className="flex gap-2 flex-wrap">
             {data.skills.map((sk) => (
               <SkillChip key={sk} text={sk} />
             ))}
@@ -48,8 +68,46 @@ const ProjectCard = ({ data }) => {
       </div>
       {/* Images */}
       <div className="bg-slate-50 flex flex-row w-full max-h-80">
-        {data.images && <Carousel slides={data.images} name={data.title} />}
+        {data.images && (
+          <Slider
+            adaptiveHeight
+            className='w-full h-full'
+            dots
+            infinite
+            slidesToScroll={ 1 }
+            slidesToShow={ 1 }
+          >
+            { data.images.map((s, index) => (
+              <div
+                className="w-[354px] xl:w-[423px] flex"
+                key={ index }
+              >
+                <Image
+                  alt={`${ data.title }-${ index }`}
+                  className="w-full h-full object-fill"
+                  height={ 600 }
+                  key={ index }
+                  onClick={() => openImageViewer(index)}
+                  src={ s || notFoundImg }
+                  width={ 600 }
+                />
+              </div>
+            ))}
+          </Slider>
+        )}
       </div>
+      { isViewerOpen && (
+        <Viewer
+          src={data.images}
+          currentIndex={currentImage}
+          onClose={closeImageViewer}
+          disableScroll={false}
+          backgroundStyle={{
+            backgroundColor: "rgba(0,0,0,0.9)"
+          }}
+          closeOnClickOutside={true}
+        />
+      )}
     </div>
   );
 };
