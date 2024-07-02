@@ -55,3 +55,13 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+section#about {
+  min-height: calc(100vh - 100px);
+  height: calc(100vh - 100px);
+
+  @media (max-width: 768px) {
+    min-height: calc(100vh - 130px);
+    height: calc(100vh - 130px);
+  }
+}

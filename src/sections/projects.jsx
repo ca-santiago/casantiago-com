@@ -115,9 +115,11 @@ const ProjectCard = ({ data }) => {
 export const ProjectsSection = () => {
   return (
     <section id="projects" className="scroll-m-14 w-full bg-slate-200 pb-16">
-      <h3 className="text-center font-semibold text-slate-600 text-3xl pt-5 md:pt-10">
-        Projects
-      </h3>
+      <a href="#projects">
+        <h3 className="text-center font-semibold text-slate-600 text-3xl pt-5 md:pt-10">
+          Projects
+        </h3>
+      </a>
       <div className="w-full md:w-4/5 lg:w-2/3 xl:w-1/3 px-2 md:px-0 md:mx-auto mt-10">
         <div className="flex flex-col gap-10">
           {data.map((proj) => (
