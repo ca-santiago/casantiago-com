@@ -36,6 +36,7 @@ export const AboutSection = () => {
                             className="rounded-full overflow-hidden border-none bg-transparent"
                             width={ 450 }
                             height={ 450 }
+                            priority
                             // placeholder="blur"
                             // blurDataURL="false"
                             src="https://personel-public-files-e42.s3.amazonaws.com/d8vofa55-foto-de-perfil-c3af2d22-6a77-4f71-b59b-e1e768c0be91.jpg"

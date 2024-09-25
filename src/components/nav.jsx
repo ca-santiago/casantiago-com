@@ -2,12 +2,22 @@
 import React from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 
+import cx from 'classnames';
+
 const MobileView = () => {
   const [open, setOpen] = React.useState(false);
   const Icon = open ? AiOutlineClose : AiOutlineMenu;
+
   const handleClick = () => {
     setOpen(false);
   };
+
+  const menuClasses = cx({
+    'h-screen min-h-screen bg-white text-slate-700 font-semibold text-lg mt-14 gap-8': true,
+    'transition duration-300 ease-in flex-col gap-4 flex': true,
+    'hidden': !open,
+  });
+
   return (
     <div className="block md:hidden select-none">
       <div className="w-full bg-white shadow top-0 z-50 fixed">
@@ -25,9 +35,7 @@ const MobileView = () => {
         </div>
         <ul
           id="mobile-menu"
-          className={`transition duration-300 ease-in flex-col gap-4 ${
-            open ? "flex" : "hidden"
-          } h-screen min-h-screen bg-white text-slate-700 font-semibold text-lg mt-14 gap-8`}
+          className={ menuClasses }
         >
           <li onClick={handleClick}>
             <a href="#about">About</a>
@@ -56,7 +64,7 @@ const DesktopView = () => {
       >
         casantiago.com
       </a>
-      <ul className="flex flex-row gap-4">
+      <ul className="flex flex-row gap-4 text-slate-600">
         <li>
           <a href="#about">About</a>
         </li>
