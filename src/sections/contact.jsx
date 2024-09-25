@@ -1,10 +1,15 @@
 'use client';
+
 import React from 'react';
 
 const CONTACT_FORM_FLAG = 'hasSendContactForm';
 
 function useLocalStorage(key) {
-  const [state, setState] = React.useState(localStorage.getItem(key));
+  const [state, setState] = React.useState(null);
+
+  React.useEffect(() => {
+    setState(localStorage.getItem(key)); 
+  }, [key]);
   
   function setStorage(item) {
     localStorage.setItem(key, item);
