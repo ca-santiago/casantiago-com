@@ -18,7 +18,7 @@
     {
       "id":"c5120cb8-783b-4f0c-94af-a9442ee6684f22",
       "title": "Habits tracker",
-      "description": "Some nice description",
+      "description": "A powerful habit management app designed to simplify the process of following and maintaining your daily habits. Offers a user-friendly interface with daily check-ins and a weekly calendar view to track your progress. Whether you're looking to build new habits or reinforce existing ones, Habitosca provides the tools you need to stay on track and achieve your goals.",
       "url": "https://habitosca.com",
       "gitUrl": "https://github.com/ca-santiago/oak-leaft",
       "skills": ["Javascript", "Node", "PrismaJs", "React", "Tailwind", "HapiJs"],
