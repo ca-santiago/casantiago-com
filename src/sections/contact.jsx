@@ -43,12 +43,13 @@ export const ContactSection = () => {
     }
   }, [savedDate, removeFlag]);
 
+  const formRef = React.useRef(null);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (alreadySend) return;
-
     setSavedDate((new Date()).toString());
+    formRef.current?.reset();
   }
 
   return (
@@ -57,16 +58,16 @@ export const ContactSection = () => {
         <h3 className="text-center font-semibold text-slate-600 text-3xl">Contact me</h3>
       </a>
 
-
-      <div className="w-full md:w-3/5 lg:w-2/5 xl:w-2/6 mx-auto border-2 border-slate-100 bg-white rounded-lg p-3 mt-8">
+      <div className="w-full md:w-3/5 lg:w-2/5 xl:w-2/6 mx-auto mt-8 flex flex-col gap-3">
         {alreadySend && (
-          <>
-            <h4 className="text-center font-semibold text-slate-600">Contact information sent! <span className="inline-block -translate-y-[3px]">📨</span></h4>
-            <p className="text-center text-slate-500 mt-2">I will contact you soon</p>
-          </>
+          <div className="border-2 border-slate-100 bg-white rounded-lg px-3 py-2 flex items-center justify-center gap-2">
+            <span className="inline-block -translate-y-[1px]">📨</span>
+            <p className="text-slate-600 font-semibold">Contact information sent! <span className="text-slate-500 font-normal">I will contact you soon</span></p>
+          </div>
         )}
-        {!alreadySend &&
+        <div className="border-2 border-slate-100 bg-white rounded-lg p-3">
           <form
+            ref={formRef}
             className="grid grid-cols-[auto_1fr] grid-rows-[auto_1fr_auto] gap-x-8 gap-y-4"
             onSubmit={handleSubmit}
           >
@@ -101,11 +102,11 @@ export const ContactSection = () => {
               </button>
             </div>
           </form>
-        }
-      </div>
-      <div className='pt-5'>
-        <p className='text-slate-600 text-center'>or send an email to: </p>
-        <a className='text-slate-700 font-semibold text-center w-full block select-text' href="mailto:casantiago.me@gmail.com">casantiago.me@gmail.com </a>
+        </div>
+        <div className="text-center">
+          <p className="text-slate-600">or send an email to:</p>
+          <a className="text-slate-700 font-semibold select-text" href="mailto:casantiago.me@gmail.com">casantiago.me@gmail.com</a>
+        </div>
       </div>
     </section>
   );
