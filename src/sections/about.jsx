@@ -25,7 +25,7 @@ export const AboutSection = () => {
 
                     {/* CTA */}
                     <div className="mt-14 select-none">
-                        <a className="bg-accent p-3 px-4" href="#projects">My projects</a>
+                        <a className="bg-accent p-3 px-4 rounded-lg" href="#projects">My projects</a>
                         <a className="ml-8 color-accent" href="#contact">Hire me</a>
                     </div>
                 </div>
