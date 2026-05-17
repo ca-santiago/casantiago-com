@@ -41,11 +41,33 @@ export const ContactSection = () => {
   }, [savedDate, removeFlag]);
 
   const formRef = React.useRef(null);
+  const [loading, setLoading] = React.useState(false);
+  const [error, setError] = React.useState(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSavedDate((new Date()).toString());
-    formRef.current?.reset();
+    setError(null);
+    setLoading(true);
+
+    const data = Object.fromEntries(new FormData(formRef.current));
+
+    try {
+      const res = await fetch(process.env.NEXT_PUBLIC_N8N_CONTACT_WEBHOOK, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (!res.ok) throw new Error(`Server responded with ${res.status}`);
+
+      setSavedDate((new Date()).toString());
+      formRef.current?.reset();
+    } catch (err) {
+      console.error(err);
+      setError('Something went wrong. Please try again or reach me by email.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -65,6 +87,13 @@ export const ContactSection = () => {
               Message sent!{' '}
               <span className="text-slate-500 font-normal">I&apos;ll get back to you soon.</span>
             </p>
+          </div>
+        )}
+
+        {error && (
+          <div className="rounded-xl border border-red-100 bg-red-50 px-4 py-3 flex items-center gap-3">
+            <span className="text-xl">⚠️</span>
+            <p className="text-red-700 text-sm">{error}</p>
           </div>
         )}
 
@@ -100,10 +129,10 @@ export const ContactSection = () => {
 
             <button
               type="submit"
-              disabled={alreadySend}
+              disabled={loading}
               className="w-full rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-medium text-white hover:bg-indigo-700 disabled:bg-slate-300 disabled:cursor-not-allowed transition-colors"
             >
-              Send message
+              {loading ? 'Sending…' : 'Send message'}
             </button>
           </form>
 
