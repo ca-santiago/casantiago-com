@@ -12,6 +12,9 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
+ARG NEXT_PUBLIC_N8N_CONTACT_WEBHOOK
+ENV NEXT_PUBLIC_N8N_CONTACT_WEBHOOK=$NEXT_PUBLIC_N8N_CONTACT_WEBHOOK
+
 RUN npm run build
 
 # Stage 3: Production image
