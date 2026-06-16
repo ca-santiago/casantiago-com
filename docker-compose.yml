@@ -1,9 +1,9 @@
 version: '3.8'
 
 services:
-  casantiago-test-postgres:
+  casantiago-postgres-dev:
     image: postgres:16-alpine
-    container_name: casantiago-test-postgres
+    container_name: casantiago-postgres-dev
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres

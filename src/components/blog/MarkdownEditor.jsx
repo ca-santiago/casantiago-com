@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import MarkdownIt from 'markdown-it';
 import './markdown.css';
 import '../../app/blog/blog.css';
@@ -96,11 +96,43 @@ const MarkdownEditor = ({ initialPost, onSave }) => {
 
   const isPublished = !!initialPost?.publishedAt;
 
+  // Auto-save for existing drafts
+  const autoSaveTimer = useRef(null);
+  const [lastSaved, setLastSaved] = useState(null);
+
+  useEffect(() => {
+    if (!isEdit) return;
+    clearTimeout(autoSaveTimer.current);
+    autoSaveTimer.current = setTimeout(async () => {
+      try {
+        const payload = {
+          title: title.trim() || null,
+          content: content || null,
+          excerpt: stripMd(content),
+          cover_image: coverImage.trim() || null,
+          tags: parseTags(tagsInput),
+        };
+        const res = await fetch(`/api/posts/${initialPost.slug}`, {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        if (res.ok) setLastSaved(new Date());
+      } catch (_) {}
+    }, 2000);
+    return () => clearTimeout(autoSaveTimer.current);
+  }, [title, content, coverImage, tagsInput]); // eslint-disable-line
+
   return (
     <div className="editor-wrap">
       <div className="editor-topbar">
         <a href="/system/admin/blog" className="editor-topbar-brand">← Posts</a>
         <div className="editor-topbar-actions">
+          {lastSaved && (
+            <span className="editor-autosave-hint">
+              saved {lastSaved.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+            </span>
+          )}
           <button onClick={() => setPreview((p) => !p)} className="editor-btn-ghost">
             {preview ? '✎ Edit' : '👁 Preview'}
           </button>

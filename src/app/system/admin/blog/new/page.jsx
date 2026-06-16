@@ -1,8 +1,11 @@
-'use client';
-import dynamic from 'next/dynamic';
+import { redirect } from 'next/navigation';
+import pool from '@/../../lib/db';
 
-const MarkdownEditor = dynamic(() => import('@/components/blog/MarkdownEditor'), { ssr: false });
-
-export default function NewPost() {
-  return <MarkdownEditor />;
+export default async function NewPost() {
+  const slug = 'draft-' + Date.now().toString(36);
+  await pool.query(
+    `INSERT INTO posts (slug, "createdAt", "updatedAt") VALUES ($1, NOW(), NOW())`,
+    [slug]
+  );
+  redirect(`/system/admin/blog/${slug}`);
 }

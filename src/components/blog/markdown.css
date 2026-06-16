@@ -35,6 +35,13 @@
   align-items: center;
 }
 
+.editor-autosave-hint {
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 11px;
+  color: #8899aa;
+  margin-right: 4px;
+}
+
 .editor-btn-ghost,
 .editor-btn-draft,
 .editor-btn-publish {
