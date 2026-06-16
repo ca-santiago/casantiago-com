@@ -46,6 +46,9 @@ const MobileView = () => {
           <li onClick={handleClick}>
             <a href="#contact">Contact</a>
           </li>
+          <li onClick={handleClick}>
+            <a href="/blog">Blog</a>
+          </li>
         </ul>
       </div>
       {/* Fill div to add vertical space */}
@@ -69,10 +72,13 @@ const DesktopView = () => {
           <a href="#about">About</a>
         </li>
         <li>
-          <a href="#projects">Projects</a>{" "}
+          <a href="#projects">Projects</a>
         </li>
         <li>
           <a href="#contact">Contact</a>
+        </li>
+        <li>
+          <a href="/blog">Blog</a>
         </li>
       </ul>
     </div>
