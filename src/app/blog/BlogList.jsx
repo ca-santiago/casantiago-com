@@ -21,7 +21,6 @@ const BlogList = () => {
         <a href="/" className="blog-topbar-title">casantiago</a>
         <div className="blog-topbar-right">
           <a href="/">Home</a>
-          <a href="/system/admin/blog">✎ Write</a>
         </div>
       </nav>
 
@@ -29,7 +28,6 @@ const BlogList = () => {
         <div className="blog-header">
           <div className="blog-header-top">
             <h1>Blog</h1>
-            <a href="/system/admin/blog" className="btn-write">✎ Write</a>
           </div>
           <p className="blog-subtitle">Thoughts and ideas</p>
         </div>
@@ -41,7 +39,6 @@ const BlogList = () => {
         ) : posts.length === 0 ? (
           <div className="blog-empty">
             <p>Nothing here yet.</p>
-            <a href="/system/admin/blog" className="btn-start">Write your first post →</a>
           </div>
         ) : (
           <div className="blog-list">
