@@ -1,5 +1,5 @@
 import MarkdownIt from 'markdown-it';
-import pool from '@/../../lib/db';
+import pool from '@/../lib/db';
 import '../blog.css';
 
 const md = new MarkdownIt({ html: false, linkify: true, typographer: true });
