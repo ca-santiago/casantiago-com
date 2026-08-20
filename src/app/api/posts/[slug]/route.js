@@ -2,7 +2,7 @@ import pool from '@/../lib/db';
 
 export async function GET(request, { params }) {
   try {
-    const { slug } = params;
+    const { slug } = await params;
     const result = await pool.query('SELECT * FROM posts WHERE slug = $1', [slug]);
 
     if (result.rows.length === 0) {
@@ -18,7 +18,7 @@ export async function GET(request, { params }) {
 
 export async function PATCH(request, { params }) {
   try {
-    const { slug } = params;
+    const { slug } = await params;
     const body = await request.json();
 
     const allowed = ['title', 'content', 'excerpt', 'publishedAt', 'cover_image', 'tags'];
@@ -44,7 +44,7 @@ export async function PATCH(request, { params }) {
 
 export async function DELETE(request, { params }) {
   try {
-    const { slug } = params;
+    const { slug } = await params;
     const result = await pool.query('DELETE FROM posts WHERE slug = $1 RETURNING *', [slug]);
 
     if (result.rows.length === 0) {

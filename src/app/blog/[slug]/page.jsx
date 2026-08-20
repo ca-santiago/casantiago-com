@@ -18,7 +18,8 @@ async function getPost(slug) {
 }
 
 export async function generateMetadata({ params }) {
-  const post = await getPost(params.slug);
+  const { slug } = await params;
+  const post = await getPost(slug);
   return {
     title: post ? `${post.title} — casantiago` : 'Post not found',
     description: post?.excerpt || '',
@@ -26,7 +27,8 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function PostPage({ params }) {
-  const post = await getPost(params.slug);
+  const { slug } = await params;
+  const post = await getPost(slug);
 
   if (!post) {
     return (

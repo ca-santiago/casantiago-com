@@ -5,18 +5,19 @@ import dynamic from 'next/dynamic';
 const MarkdownEditor = dynamic(() => import('@/components/blog/MarkdownEditor'), { ssr: false });
 
 export default function EditPost({ params }) {
+  const { slug } = React.use(params);
   const [post, setPost] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(`/api/posts/${params.slug}`)
+    fetch(`/api/posts/${slug}`)
       .then((r) => {
         if (!r.ok) throw new Error('Post not found');
         return r.json();
       })
       .then(setPost)
       .catch((e) => setError(e.message));
-  }, [params.slug]);
+  }, [slug]);
 
   if (error) return (
     <div style={{ padding: 40, fontFamily: 'Verdana, sans-serif', fontSize: 13 }}>
